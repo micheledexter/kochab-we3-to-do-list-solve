@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vendors/angular.js"></script>
+    <script src="scripts/client.js"></script>
+    <link rel="stylesheet" type="text/css" href="vendors/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <title>To Do-inator</title>
 </head>
-<body>
-    <h1>To Do-inator</h1>
+<body ng-app="ToDoApp">
+    <div ng-controller="TaskController as vm" class="container-fluid">
+        <div class="jumbotron">
+            <h1>To Do-inator</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12 m-2">
+                {{vm.newTask}}
+                <form>
+                    <input type="text" ng-model="vm.newTask.task_name" placeholder="Task Name" />
+                    <select ng-model="vm.newTask.priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                    <input type="date" ng-model="vm.newTask.due_date" />
+                    <button class="btn btn-primary" ng-click="vm.addTask()">Add Task</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 m-2">
+                <h2>Stuff to do</h2>
+                
+            </div>
+        </div>
+    </div>
 </body>
 </html>
